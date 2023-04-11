@@ -1,5 +1,5 @@
 void main() {
-  final Hero wolverine = new Hero('Logan', 'Regeneración');
+  final Hero wolverine = Hero(name: 'Logan');
   print(wolverine);
   print(wolverine.name);
   print(wolverine.power);
@@ -15,5 +15,15 @@ class Hero {
   //  : name = pName,
   //    power = pPower;
   //forma 2
-  Hero( this.name, this.power );
+  Hero({
+        required this.name,
+        //si el parametro está vacío
+        this.power = 'Sin Poder'
+    });
+  
+  //sobreescribir métodos
+  @override
+  String toString(){
+    return '$name - $power';
+  }
 }
